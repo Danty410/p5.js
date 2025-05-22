@@ -4,6 +4,7 @@ function setup() {
 
 let xJogador = [0, 0, 0, 0];
 let yJogador = [100, 200, 300];
+let jogador = ["😎", "❤️", "👽"];
 
 function draw() {
   ativaJogo();
@@ -14,17 +15,17 @@ function draw() {
 
 function ativaJogo() {
   if (focused == true) {
-    background("#D2EBB5");
+    background("#EEE8AA");
   } else {
-    background("rgb(238,178,178)");
+    background("rgb(255,255,255)");
   }
 }
 
 function desenhaJogadores() {
   textSize(40);
-  text("😎", xJogador[0], yJogador[0]);
-  text("❤️", xJogador[1], yJogador[1]);
-  text("👽", xJogador[2], yJogador[2]);
+  for (let i = 0; i < 3; i++) {
+    text(jogador[i], xJogador[i], yJogador[i]);
+  }
 }
 
 function desenhaLinhaDeChegada() {
@@ -37,17 +38,11 @@ function desenhaLinhaDeChegada() {
 }
 
 function verificaVencedor() {
-  if (xJogador[0] > 350) {
-    text("Jogador 1 venceu!", 50, 200);
-    noLoop();
-  }
-  if (xJogador[1] > 350) {
-    text("Jogador 2 venceu!", 50, 200);
-    noLoop();
-  }
-  if (xJogador[2] > 350) {
-    text("Jogador 3 venceu!", 50, 200);
-    noLoop();
+  for (let i = 0; i < 3; i++) {
+    if (xJogador[i] > 350) {
+      text(jogador[i] + " venceeeeeu!", 50, 200);
+      noLoop();
+    }
   }
 }
 
@@ -56,7 +51,7 @@ function keyReleased() {
     xJogador[0] += random(20);
   }
   if (key == "s") {
-    xJogador[1] += random(20);
+    xJogador[1] += random(20); 
   }
   if (key == "d") {
     xJogador[2] += random(20);

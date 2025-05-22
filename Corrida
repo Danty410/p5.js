@@ -4,7 +4,7 @@ function setup() {
 
 let xJogador = [0, 0, 0, 0];
 let yJogador = [100, 200, 300];
-let jogador = ["😎", "❤️", "👽"];
+let jogador = ["🟣", "🔵", "⚫"];
 
 function draw() {
   ativaJogo();
